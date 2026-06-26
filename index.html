@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ray House｜横浜・元町中華街 一日一組限定の隠れ家</title>
+<meta name="description" content="中華街の喧騒を抜けた先、横浜元町の路地に佇む一軒家貸切宿。最大8名、ベッドルーム3室。観光もビジネスも、ただいまと言える場所へ。">
+<meta property="og:title" content="Ray House｜横浜・元町中華街 一日一組限定の隠れ家">
+<meta property="og:description" content="一軒家まるごと貸切。中華街徒歩3分、山下公園徒歩10分。最大8名様までご宿泊いただける、横浜の隠れ家。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0c0a;
+  --ink-soft:#1a1816;
+  --paper:#f6f1e6;
+  --paper-warm:#ece3cf;
+  --gold:#c9a86a;
+  --gold-deep:#8a6f3b;
+  --vermilion:#8c1f1f;
+  --text:#1c1a17;
+  --text-muted:#6f6a60;
+  --line:rgba(201,168,106,.35);
+  --serif:'Noto Serif JP','Cormorant Garamond',serif;
+  --sans:'Noto Sans JP',-apple-system,'Hiragino Kaku Gothic ProN',sans-serif;
+  --latin:'Cormorant Garamond',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  color:var(--text);
+  background:var(--paper);
+  line-height:1.8;
+  font-weight:300;
+  letter-spacing:.04em;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;transition:.3s;}
+
+/* ===== Header ===== */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:24px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:.4s;
+  background:linear-gradient(180deg,rgba(13,12,10,.6),transparent);
+}
+.header.scrolled{
+  background:rgba(13,12,10,.92);
+  padding:14px 48px;
+  backdrop-filter:blur(8px);
+}
+.logo{
+  font-family:var(--latin);
+  color:var(--paper);
+  font-size:26px;
+  font-weight:500;
+  letter-spacing:.18em;
+}
+.logo span{color:var(--gold);}
+.nav{display:flex;gap:34px;}
+.nav a{
+  color:var(--paper);
+  font-size:13px;
+  letter-spacing:.18em;
+  font-weight:400;
+  position:relative;
+}
+.nav a::after{
+  content:'';position:absolute;bottom:-6px;left:50%;width:0;height:1px;
+  background:var(--gold);transition:.3s;transform:translateX(-50%);
+}
+.nav a:hover::after{width:100%;}
+.cta-mini{
+  background:var(--gold);color:var(--ink);
+  padding:10px 22px;font-size:12px;letter-spacing:.2em;
+  border-radius:2px;font-weight:500;
+}
+.cta-mini:hover{background:var(--paper);}
+.hamb{display:none;}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;height:100vh;min-height:680px;
+  background:
+    linear-gradient(180deg,rgba(13,12,10,.75) 0%,rgba(13,12,10,.55) 40%,rgba(13,12,10,.85) 100%),
+    url('photo/covers/cover-hero.jpg') center/cover no-repeat,
+    url('https://images.unsplash.com/photo-1542931287-023b922fa89b?w=1920&q=85&auto=format&fit=crop') center/cover no-repeat,
+    #0d0c0a;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--paper);
+  text-align:center;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(13,12,10,.55) 0%,rgba(13,12,10,.15) 60%,transparent 100%);
+  pointer-events:none;
+}
+.hero-inner{
+  padding:0 24px;max-width:900px;
+  position:relative;z-index:2;
+}
+.hero-tag{
+  font-family:var(--latin);
+  font-size:13px;letter-spacing:.5em;
+  color:var(--gold);
+  margin-bottom:32px;text-transform:uppercase;
+  text-shadow:0 2px 14px rgba(0,0,0,.7);
+}
+.hero h1{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(34px,5.4vw,72px);
+  line-height:1.4;
+  letter-spacing:.12em;
+  margin-bottom:28px;
+  color:#fff;
+  text-shadow:0 3px 20px rgba(0,0,0,.85),0 1px 4px rgba(0,0,0,.6);
+}
+.hero h1 strong{color:var(--gold);font-weight:500;text-shadow:0 3px 22px rgba(0,0,0,.9),0 0 30px rgba(13,12,10,.6);}
+.hero-lead{
+  font-size:16px;letter-spacing:.18em;
+  color:#fdfaf0;line-height:2.2;
+  margin-bottom:48px;
+  font-weight:400;
+  text-shadow:0 2px 14px rgba(0,0,0,.8),0 1px 3px rgba(0,0,0,.6);
+}
+.hero-meta{
+  display:inline-flex;gap:28px;
+  padding:14px 34px;
+  border:1px solid rgba(201,168,106,.6);
+  background:rgba(13,12,10,.45);
+  backdrop-filter:blur(6px);
+  font-family:var(--latin);
+  letter-spacing:.2em;font-size:13px;
+  color:#fdfaf0;
+}
+.hero-meta span{color:var(--gold);}
+.scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  font-family:var(--latin);font-size:11px;letter-spacing:.4em;
+  color:var(--paper);writing-mode:vertical-rl;
+  opacity:.7;
+}
+.scroll-hint::after{
+  content:'';display:block;width:1px;height:50px;
+  background:var(--gold);margin:14px auto 0;
+  animation:scrollLine 2.4s ease-in-out infinite;
+}
+@keyframes scrollLine{0%,100%{transform:scaleY(.3);transform-origin:top;}50%{transform:scaleY(1);}}
+
+/* ===== Section base ===== */
+section{padding:120px 48px;position:relative;}
+.section-head{text-align:center;margin-bottom:80px;}
+.section-en{
+  font-family:var(--latin);
+  font-size:14px;letter-spacing:.5em;
+  color:var(--gold-deep);
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.section-jp{
+  font-family:var(--serif);
+  font-size:clamp(26px,3.4vw,40px);
+  font-weight:400;letter-spacing:.12em;
+  line-height:1.5;
+}
+.section-jp::after{
+  content:'';display:block;width:36px;height:1px;
+  background:var(--gold);margin:24px auto 0;
+}
+
+/* ===== Concept ===== */
+.concept{
+  background:var(--paper);
+  background-image:
+    radial-gradient(circle at 10% 20%,rgba(201,168,106,.06),transparent 40%),
+    radial-gradient(circle at 90% 80%,rgba(140,31,31,.04),transparent 40%);
+}
+.concept-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.concept-text h2{
+  font-family:var(--serif);
+  font-size:clamp(28px,3.2vw,40px);
+  font-weight:400;
+  letter-spacing:.1em;
+  line-height:1.6;
+  margin-bottom:32px;
+}
+.concept-text h2 em{
+  font-style:normal;color:var(--vermilion);
+  font-family:var(--serif);
+}
+.concept-text p{
+  font-size:15px;line-height:2.2;color:var(--text-muted);
+  margin-bottom:20px;
+}
+.concept-img{
+  position:relative;height:560px;
+  background:url('photo/IMG_E6061%20-%20%E7%B7%A8%E9%9B%86%E6%B8%88%E3%81%BF.jpg') center/cover no-repeat;
+  box-shadow:30px 30px 0 -10px var(--gold);
+}
+.concept-img::before{
+  content:'隠';
+  position:absolute;top:-30px;left:-30px;
+  font-family:var(--serif);font-size:140px;font-weight:300;
+  color:var(--ink);opacity:.9;line-height:1;
+}
+
+/* ===== Feature numbers ===== */
+.features{
+  background:var(--ink);color:var(--paper);
+  padding:100px 48px;
+}
+.feature-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:60px;
+}
+.feature-item{text-align:center;}
+.feature-num{
+  font-family:var(--latin);
+  font-size:60px;font-weight:300;
+  color:var(--gold);
+  line-height:1;margin-bottom:14px;
+}
+.feature-unit{
+  font-size:13px;letter-spacing:.3em;
+  color:var(--gold);
+  margin-bottom:18px;display:block;
+}
+.feature-label{
+  font-family:var(--serif);
+  font-size:17px;letter-spacing:.1em;
+  font-weight:300;
+}
+
+/* ===== Rooms ===== */
+.rooms{background:var(--paper);}
+.rooms-gallery{
+  max-width:1300px;margin:0 auto 80px;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  grid-template-rows:240px 240px;
+  gap:14px;
+}
+.rooms-gallery div{
+  background-size:cover;background-position:center;
+  position:relative;overflow:hidden;
+}
+.rooms-gallery div::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(13,12,10,0);transition:.5s;
+}
+.rooms-gallery div:hover::after{background:rgba(13,12,10,.2);}
+.gal-1{
+  grid-row:span 2;
+  background-image:url('photo/IMG_E6055%20-%20%E7%B7%A8%E9%9B%86%E6%B8%88%E3%81%BF.jpg');
+}
+.gal-2{background-image:url('photo/IMG_E6061%20-%20%E7%B7%A8%E9%9B%86%E6%B8%88%E3%81%BF.jpg');}
+.gal-3{background-image:url('photo/IMG_6593%20-%20%E7%B7%A8%E9%9B%86%E6%B8%88%E3%81%BF.jpg');}
+.gal-4{background-image:url('photo/IMG_6633.JPG');}
+.gal-5{background-image:url('photo/IMG_6565.JPG');}
+.gal-6{background-image:url('photo/IMG_4541.JPG');}
+.gal-7{background-image:url('photo/IMG_4593.JPG');}
+
+.rooms-detail{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:48px;
+}
+.room-card{
+  text-align:center;
+  padding:36px 24px;
+  background:#fff;
+  border-top:2px solid var(--gold);
+  box-shadow:0 4px 30px rgba(0,0,0,.04);
+}
+.room-card .room-icon{
+  font-family:var(--serif);
+  font-size:32px;color:var(--gold-deep);
+  margin-bottom:14px;letter-spacing:.1em;
+}
+.room-card h3{
+  font-family:var(--serif);
+  font-size:20px;font-weight:500;
+  letter-spacing:.15em;margin-bottom:16px;
+}
+.room-card p{
+  font-size:14px;color:var(--text-muted);line-height:2;
+}
+
+/* ===== Stay Story ===== */
+.story{
+  background:var(--ink);color:var(--paper);
+  padding:0;
+}
+.story-block{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:520px;
+}
+.story-block.reverse{grid-template-columns:1fr 1fr;}
+.story-img{background-size:cover;background-position:center;}
+.story-text{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 72px;
+}
+.story-num{
+  font-family:var(--latin);
+  font-size:14px;letter-spacing:.4em;
+  color:var(--gold);margin-bottom:22px;
+}
+.story-text h3{
+  font-family:var(--serif);
+  font-size:clamp(24px,2.6vw,34px);
+  font-weight:300;letter-spacing:.12em;
+  line-height:1.6;margin-bottom:28px;
+}
+.story-text p{
+  font-size:14px;line-height:2.2;
+  color:#c5beb0;letter-spacing:.08em;
+}
+.s1{background-image:url('photo/covers/cover-story-01-evening.jpg'),url('https://images.unsplash.com/photo-1565967511849-76a60a516170?w=1200&q=85&auto=format&fit=crop');}
+.s2{background-image:url('photo/covers/cover-story-02-morning.jpg'),url('https://images.unsplash.com/photo-1545569310-44d72c4f9ba1?w=1200&q=85&auto=format&fit=crop');}
+.s3{background-image:url('photo/covers/cover-story-03-night.jpg'),url('https://commons.wikimedia.org/wiki/Special:FilePath/The%20night%20view%20of%20Minato%20Mirai%2021%20-%203.jpg');}
+
+/* ===== Around ===== */
+.around{background:var(--paper-warm);padding:120px 48px;}
+.around-intro{
+  text-align:center;max-width:680px;margin:0 auto 70px;
+  font-size:15px;line-height:2.2;color:var(--text-muted);
+}
+.spots{
+  max-width:1300px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:30px;
+}
+.spot{
+  background:#fff;
+  overflow:hidden;
+  transition:.4s;
+  position:relative;
+}
+.spot:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(13,12,10,.12);}
+.spot-img{
+  height:240px;background-size:cover;background-position:center;
+  position:relative;
+}
+.spot-distance{
+  position:absolute;top:14px;right:14px;
+  background:var(--ink);color:var(--gold);
+  font-family:var(--latin);font-size:12px;letter-spacing:.2em;
+  padding:6px 14px;
+}
+.spot-body{padding:26px 28px 32px;}
+.spot-cat{
+  font-family:var(--latin);
+  font-size:11px;letter-spacing:.4em;
+  color:var(--vermilion);margin-bottom:10px;
+}
+.spot h3{
+  font-family:var(--serif);
+  font-size:19px;font-weight:500;
+  letter-spacing:.08em;margin-bottom:14px;
+}
+.spot p{font-size:13px;line-height:1.9;color:var(--text-muted);}
+
+.sp1 .spot-img{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Gate%20of%20Guandimiao%20Temple%20in%20Yokohama%20Chinatown%20at%20night.JPG');}
+.sp2 .spot-img{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Hikawamaru%20201005%202.JPG');}
+.sp3 .spot-img{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Motomachi%20shopping%20street.jpg');}
+.sp4 .spot-img{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Harbor%20View%20Park%20%28Yokohama%29%20Observation%20deck.jpg');}
+.sp5 .spot-img{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Yokohama%20Red%20Brick%20Warehouse%202012.JPG');}
+.sp6 .spot-img{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Minato%20Mirai%2021%20Mid%20View.JPG');}
+
+/* ===== Access ===== */
+.access{background:var(--paper);}
+.access-wrap{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;
+}
+.access-info h3{
+  font-family:var(--serif);
+  font-size:24px;font-weight:400;
+  letter-spacing:.12em;margin-bottom:24px;
+  padding-bottom:18px;border-bottom:1px solid var(--line);
+}
+.access-info .addr{
+  font-family:var(--serif);font-size:18px;
+  letter-spacing:.08em;margin-bottom:30px;
+}
+.access-list{list-style:none;margin-bottom:36px;}
+.access-list li{
+  display:flex;align-items:flex-start;gap:18px;
+  padding:18px 0;border-bottom:1px dashed var(--line);
+  font-size:14px;
+}
+.access-list .badge{
+  display:inline-block;
+  background:var(--ink);color:var(--gold);
+  font-family:var(--latin);font-size:11px;letter-spacing:.2em;
+  padding:4px 10px;min-width:64px;text-align:center;
+  flex-shrink:0;
+}
+.access-list strong{font-weight:500;letter-spacing:.1em;display:block;margin-bottom:4px;}
+.access-list span{color:var(--text-muted);font-size:12px;}
+.access-map{
+  position:relative;
+  height:480px;
+  background:#ddd;
+  box-shadow:0 20px 50px rgba(0,0,0,.1);
+}
+.access-map iframe{width:100%;height:100%;border:0;filter:saturate(.8) contrast(.95);}
+
+/* ===== Info table ===== */
+.info{
+  background:var(--ink);color:var(--paper);
+  padding:100px 48px;
+}
+.info-table{
+  max-width:880px;margin:0 auto;
+}
+.info-table dl{
+  display:grid;grid-template-columns:200px 1fr;
+  border-top:1px solid rgba(201,168,106,.2);
+}
+.info-table dt,.info-table dd{
+  padding:22px 12px;
+  border-bottom:1px solid rgba(201,168,106,.2);
+  font-size:14px;letter-spacing:.1em;
+}
+.info-table dt{
+  font-family:var(--serif);color:var(--gold);
+  font-weight:400;
+}
+.info-table dd{color:#e6e0d0;}
+
+/* ===== CTA ===== */
+.cta{
+  background:
+    linear-gradient(135deg,rgba(13,12,10,.85),rgba(13,12,10,.65)),
+    url('photo/covers/cover-cta.jpg') center/cover fixed no-repeat,
+    url('https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1920&q=85&auto=format&fit=crop') center/cover fixed no-repeat;
+  color:var(--paper);text-align:center;
+  padding:140px 24px;
+}
+.cta-en{
+  font-family:var(--latin);font-size:13px;letter-spacing:.5em;
+  color:var(--gold);margin-bottom:20px;
+}
+.cta h2{
+  font-family:var(--serif);
+  font-size:clamp(26px,3.2vw,40px);
+  font-weight:300;letter-spacing:.18em;
+  margin-bottom:28px;line-height:1.6;
+}
+.cta-lead{
+  font-size:14px;line-height:2.2;letter-spacing:.12em;
+  color:#d6cfbe;margin-bottom:50px;
+}
+.cta-buttons{
+  display:flex;gap:24px;justify-content:center;flex-wrap:wrap;
+}
+.btn-primary,.btn-secondary{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:22px 48px;
+  font-size:13px;letter-spacing:.3em;font-weight:500;
+  transition:.3s;
+  min-width:280px;justify-content:center;
+}
+.btn-primary{
+  background:var(--vermilion);color:var(--paper);
+}
+.btn-primary:hover{background:#a82828;transform:translateY(-2px);}
+.btn-secondary{
+  border:1px solid var(--gold);color:var(--gold);
+}
+.btn-secondary:hover{background:var(--gold);color:var(--ink);}
+.btn-primary::after,.btn-secondary::after{content:'→';font-family:var(--latin);}
+
+/* ===== Form ===== */
+.contact{background:var(--paper);}
+.form-wrap{max-width:680px;margin:0 auto;}
+.form-row{margin-bottom:24px;}
+.form-row label{
+  display:block;font-family:var(--serif);
+  font-size:13px;letter-spacing:.18em;
+  margin-bottom:10px;color:var(--text);
+}
+.form-row label .req{color:var(--vermilion);font-size:10px;margin-left:8px;}
+.form-row input,.form-row textarea,.form-row select{
+  width:100%;padding:14px 18px;
+  background:#fff;border:1px solid var(--line);
+  font-family:var(--sans);font-size:14px;
+  color:var(--text);letter-spacing:.04em;
+  border-radius:0;transition:.3s;
+}
+.form-row input:focus,.form-row textarea:focus,.form-row select:focus{
+  outline:none;border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(201,168,106,.1);
+}
+.form-row textarea{min-height:140px;resize:vertical;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.form-submit{
+  display:block;width:100%;
+  background:var(--ink);color:var(--paper);
+  padding:20px;border:none;cursor:pointer;
+  font-family:var(--serif);font-size:14px;letter-spacing:.4em;
+  transition:.3s;
+}
+.form-submit:hover{background:var(--vermilion);}
+
+/* ===== Owner ===== */
+.owner{
+  background:var(--paper-warm);
+  padding:90px 48px;
+}
+.owner-inner{
+  max-width:780px;margin:0 auto;text-align:center;
+}
+.owner-en{
+  font-family:var(--latin);font-size:13px;letter-spacing:.4em;
+  color:var(--gold-deep);margin-bottom:18px;
+}
+.owner h3{
+  font-family:var(--serif);font-size:24px;font-weight:400;
+  letter-spacing:.12em;margin-bottom:30px;
+}
+.owner p{
+  font-size:14px;line-height:2.4;color:var(--text-muted);
+  letter-spacing:.08em;
+}
+
+/* ===== Footer ===== */
+.footer{
+  background:var(--ink);color:#9b9485;
+  padding:60px 48px 30px;text-align:center;
+}
+.footer-logo{
+  font-family:var(--latin);font-size:24px;letter-spacing:.2em;
+  color:var(--paper);margin-bottom:14px;
+}
+.footer-logo span{color:var(--gold);}
+.footer-tag{
+  font-size:12px;letter-spacing:.3em;margin-bottom:30px;
+}
+.footer-nav{
+  display:flex;justify-content:center;gap:30px;
+  margin-bottom:36px;flex-wrap:wrap;
+}
+.footer-nav a{font-size:12px;letter-spacing:.2em;color:#9b9485;}
+.footer-nav a:hover{color:var(--gold);}
+.copyright{
+  font-family:var(--latin);font-size:11px;letter-spacing:.3em;
+  padding-top:24px;border-top:1px solid rgba(201,168,106,.15);
+}
+
+/* ===== Responsive ===== */
+@media (max-width:880px){
+  .header{padding:16px 20px;}
+  .nav{display:none;position:fixed;top:0;right:-100%;width:75%;height:100vh;background:var(--ink);flex-direction:column;justify-content:center;align-items:center;gap:30px;transition:.4s;z-index:99;}
+  .nav.open{right:0;display:flex;}
+  .nav a{font-size:16px;}
+  .cta-mini{display:none;}
+  .hamb{display:flex;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;z-index:101;}
+  .hamb span{width:24px;height:1px;background:var(--paper);transition:.3s;}
+  .hamb.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+  .hamb.open span:nth-child(2){opacity:0;}
+  .hamb.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+  section{padding:80px 24px;}
+  .concept-grid,.access-wrap{grid-template-columns:1fr;gap:50px;}
+  .concept-img{height:380px;}
+  .feature-grid{grid-template-columns:repeat(2,1fr);gap:40px;}
+  .rooms-gallery{grid-template-columns:1fr;grid-template-rows:none;}
+  .rooms-gallery div{height:220px;}
+  .gal-1{grid-row:auto;height:280px;}
+  .rooms-detail{grid-template-columns:1fr;gap:24px;}
+  .story-block,.story-block.reverse{grid-template-columns:1fr;}
+  .story-img{height:280px;}
+  .story-text{padding:50px 28px;}
+  .spots{grid-template-columns:1fr;}
+  .info-table dl{grid-template-columns:1fr;}
+  .info-table dt{background:rgba(201,168,106,.06);padding-bottom:6px;}
+  .info-table dd{padding-top:6px;}
+  .form-grid{grid-template-columns:1fr;}
+  .cta-buttons{flex-direction:column;align-items:center;}
+  .btn-primary,.btn-secondary{width:100%;max-width:320px;}
+  .hero-meta{flex-direction:column;gap:10px;padding:16px 22px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <a href="#" class="logo">Ray <span>House</span></a>
+  <nav class="nav" id="nav">
+    <a href="#concept">CONCEPT</a>
+    <a href="#rooms">ROOMS</a>
+    <a href="#around">AROUND</a>
+    <a href="#access">ACCESS</a>
+    <a href="#info">INFO</a>
+  </nav>
+  <a href="#reserve" class="cta-mini">予約する</a>
+  <button class="hamb" id="hamb" aria-label="menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-tag">Yokohama Motomachi Chinatown — Private Stay</p>
+    <h1>中華街の喧騒を抜けて、<br><strong>「ただいま」</strong>と言える場所へ。</h1>
+    <p class="hero-lead">一日一組限定、最大8名様。<br>横浜・元町の路地に佇む、一軒家貸切の隠れ家。</p>
+    <div class="hero-meta">
+      <span>EST. 2016</span>
+      <span>1 GROUP / DAY</span>
+      <span>MAX 8 GUESTS</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<!-- Concept -->
+<section class="concept" id="concept">
+  <div class="section-head">
+    <p class="section-en">Concept</p>
+    <h2 class="section-jp">街に泊まる、家に帰る。</h2>
+  </div>
+  <div class="concept-grid">
+    <div class="concept-text">
+      <h2>横浜元町の路地裏に、<br>あなただけの<em>一軒家</em>。</h2>
+      <p>ホテルでは決して味わえない、観光地ど真ん中の一軒家暮らし。中華街の華やかな夜を抜けて、玄関の鍵を開ける。リビングでくつろぎ、キッチンで朝のコーヒーを淹れる──。Ray Houseは、横浜での滞在を「旅」から「日常」へと変える場所です。</p>
+      <p>2016年の開業以来、二度のリノベーションを経て、いま最も心地よい姿に。家族で、仲間で、大切な人と。中華街と港町の余韻を、丸ごと独り占めしてください。</p>
+    </div>
+    <div class="concept-img"></div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+  <div class="feature-grid">
+    <div class="feature-item"><div class="feature-num">8</div><span class="feature-unit">MAX GUESTS</span><p class="feature-label">最大8名様までご宿泊</p></div>
+    <div class="feature-item"><div class="feature-num">3</div><span class="feature-unit">BEDROOMS</span><p class="feature-label">独立した3つの寝室</p></div>
+    <div class="feature-item"><div class="feature-num">5</div><span class="feature-unit">MINUTES</span><p class="feature-label">最寄駅から徒歩5分</p></div>
+    <div class="feature-item"><div class="feature-num">1</div><span class="feature-unit">GROUP/DAY</span><p class="feature-label">一日一組限定の貸切</p></div>
+  </div>
+</section>
+
+<!-- Rooms -->
+<section class="rooms" id="rooms">
+  <div class="section-head">
+    <p class="section-en">Rooms &amp; Facilities</p>
+    <h2 class="section-jp">一軒家を、まるごと。</h2>
+  </div>
+  <div class="rooms-gallery">
+    <div class="gal-1"></div>
+    <div class="gal-2"></div>
+    <div class="gal-3"></div>
+    <div class="gal-4"></div>
+    <div class="gal-5"></div>
+    <div class="gal-6"></div>
+    <div class="gal-7"></div>
+  </div>
+  <div class="rooms-detail">
+    <div class="room-card">
+      <div class="room-icon">寝</div>
+      <h3>BEDROOM</h3>
+      <p>ダブルベッド3台＋<br>ソファーベッド2台。<br>最大8名様まで、<br>プライベートに就寝。</p>
+    </div>
+    <div class="room-card">
+      <div class="room-icon">浴</div>
+      <h3>BATH &amp; WC</h3>
+      <p>ゆったりユニットバス。<br>ウォシュレット付き<br>トイレ2基完備で、<br>朝の支度もスムーズに。</p>
+    </div>
+    <div class="room-card">
+      <div class="room-icon">居</div>
+      <h3>LIVING</h3>
+      <p>テレビ・キッチン・<br>洗濯機・IH調理器完備。<br>ベビーベッドもあり、<br>小さなお子様も安心。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Story -->
+<section class="story">
+  <div class="story-block">
+    <div class="story-img s1"></div>
+    <div class="story-text">
+      <p class="story-num">01 — Evening</p>
+      <h3>提灯の灯る通りを抜けて、<br>夜の中華街を独り占め。</h3>
+      <p>玄関を開けて、わずか3分。色とりどりのネオンと飲茶の湯気に包まれて、横浜中華街の夜が始まります。お気に入りの一軒で食事を楽しんだあとは、すぐ我が家へ。終電を気にせず、ゆっくりと夜を更かしてください。</p>
+    </div>
+  </div>
+  <div class="story-block">
+    <div class="story-text">
+      <p class="story-num">02 — Morning</p>
+      <h3>港の風と汽笛で目覚め、<br>朝の山下公園を散歩。</h3>
+      <p>窓を開けると、海風が心地よく抜ける朝。コーヒーを片手に、山下公園のバラ園や氷川丸を眺める早朝散歩へ。地元の人だけが知る、観光地のもうひとつの顔がそこにあります。</p>
+    </div>
+    <div class="story-img s2"></div>
+  </div>
+  <div class="story-block">
+    <div class="story-img s3"></div>
+    <div class="story-text">
+      <p class="story-num">03 — Night</p>
+      <h3>みなとみらいの夜景に酔いしれて、<br>もう一度、我が家へ。</h3>
+      <p>みなとみらい線で1駅。ランドマークタワーが煌めき、観覧車が時を刻む夜景の街へ。赤レンガ倉庫のライトアップ、ベイブリッジの稜線──。心ゆくまで横浜の夜を楽しんで、徒歩圏内のRay Houseへお帰りください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Around -->
+<section class="around" id="around">
+  <div class="section-head">
+    <p class="section-en">Around Ray House</p>
+    <h2 class="section-jp">徒歩で、ひと駅で。<br>横浜のすべてが手の中に。</h2>
+  </div>
+  <p class="around-intro">中華街、山下公園、元町。みなとみらい線で1駅進めば、赤レンガ倉庫やランドマークタワー。<br>Ray Houseを起点に、横浜の魅力を歩いて、感じて、味わって。</p>
+  <div class="spots">
+    <article class="spot sp1">
+      <div class="spot-img"><span class="spot-distance">徒歩 3分</span></div>
+      <div class="spot-body">
+        <p class="spot-cat">EAT</p>
+        <h3>横浜中華街</h3>
+        <p>500以上の店舗が軒を連ねる、日本最大級の中華街。本格中華の名店から食べ歩きまで、夜遅くまで楽しめます。</p>
+      </div>
+    </article>
+    <article class="spot sp2">
+      <div class="spot-img"><span class="spot-distance">徒歩 10分</span></div>
+      <div class="spot-body">
+        <p class="spot-cat">STROLL</p>
+        <h3>山下公園・氷川丸</h3>
+        <p>横浜港に面した日本初の臨海公園。バラ園や芝生広場、停泊する氷川丸が織りなす、横浜の象徴的な風景。</p>
+      </div>
+    </article>
+    <article class="spot sp3">
+      <div class="spot-img"><span class="spot-distance">徒歩 7分</span></div>
+      <div class="spot-body">
+        <p class="spot-cat">SHOP</p>
+        <h3>元町ショッピングストリート</h3>
+        <p>洗練されたブティック、老舗ベーカリー、上質なカフェが並ぶ大人の街。横浜ファッション発祥の地です。</p>
+      </div>
+    </article>
+    <article class="spot sp4">
+      <div class="spot-img"><span class="spot-distance">徒歩 15分</span></div>
+      <div class="spot-body">
+        <p class="spot-cat">VIEW</p>
+        <h3>港の見える丘公園</h3>
+        <p>ベイブリッジを一望する高台のローズガーデン。映画や歌に幾度も描かれた、横浜屈指の眺望スポット。</p>
+      </div>
+    </article>
+    <article class="spot sp5">
+      <div class="spot-img"><span class="spot-distance">電車 5分</span></div>
+      <div class="spot-body">
+        <p class="spot-cat">EXPERIENCE</p>
+        <h3>横浜赤レンガ倉庫</h3>
+        <p>明治・大正期の歴史的建造物がショッピングモールに。海に面した広場では年間を通じて多彩なイベントが開催。</p>
+      </div>
+    </article>
+    <article class="spot sp6">
+      <div class="spot-img"><span class="spot-distance">電車 7分</span></div>
+      <div class="spot-body">
+        <p class="spot-cat">LANDMARK</p>
+        <h3>みなとみらい21</h3>
+        <p>ランドマークタワー、コスモワールド、夜景の名所が一帯に集結。横浜を代表するベイサイドエリア。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Access -->
+<section class="access" id="access">
+  <div class="section-head">
+    <p class="section-en">Access</p>
+    <h2 class="section-jp">二駅から徒歩5分。<br>羽田からも、新幹線からも近い。</h2>
+  </div>
+  <div class="access-wrap">
+    <div class="access-info">
+      <h3>Ray House</h3>
+      <p class="addr">〒231-0023<br>神奈川県横浜市中区山下町137</p>
+      <ul class="access-list">
+        <li>
+          <span class="badge">RAIL</span>
+          <div><strong>みなとみらい線「元町・中華街駅」</strong><span>2番出口より徒歩5分</span></div>
+        </li>
+        <li>
+          <span class="badge">RAIL</span>
+          <div><strong>JR根岸線「石川町駅」</strong><span>中華街口より徒歩5分</span></div>
+        </li>
+        <li>
+          <span class="badge">AIR</span>
+          <div><strong>羽田空港から</strong><span>京急線・みなとみらい線で約40分</span></div>
+        </li>
+        <li>
+          <span class="badge">RAIL</span>
+          <div><strong>新横浜駅から</strong><span>JR・横浜市営地下鉄で約25分</span></div>
+        </li>
+        <li>
+          <span class="badge">CAR</span>
+          <div><strong>首都高速「横浜公園出口」</strong><span>約5分（近隣にコインパーキング多数）</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="access-map">
+      <iframe src="https://www.google.com/maps?q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%A8%AA%E6%B5%9C%E5%B8%82%E4%B8%AD%E5%8C%BA%E5%B1%B1%E4%B8%8B%E7%94%BA137&output=embed" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Info -->
+<section class="info" id="info">
+  <div class="section-head">
+    <p class="section-en">Information</p>
+    <h2 class="section-jp" style="color:var(--paper)">宿泊について</h2>
+  </div>
+  <div class="info-table">
+    <dl>
+      <dt>定員</dt><dd>最大8名様（一日一組限定）</dd>
+      <dt>客室構成</dt><dd>ベッドルーム3室／リビング／ユニットバス／トイレ2基</dd>
+      <dt>寝具</dt><dd>ダブルベッド3台、ソファーベッド2台、ベビーベッド（高品質ファミリア）</dd>
+      <dt>設備</dt><dd>IHキッチン、洗濯機、ウォシュレット、テレビ、Wi-Fi、エアコン全室完備</dd>
+      <dt>チェックイン</dt><dd>15:00</dd>
+      <dt>チェックアウト</dt><dd>11:00</dd>
+      <dt>ご利用シーン</dt><dd>家族旅行・グループ旅行・ご友人同士の宿泊・ビジネス出張・記念日</dd>
+      <dt>沿革</dt><dd>2016年11月 開業／2021年12月 全面リノベーション／2023年12月 フルリノベーション実施</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="reserve">
+  <p class="cta-en">Reservation</p>
+  <h2>横浜での休日を、<br>あなただけの一軒家で。</h2>
+  <p class="cta-lead">ご予約は楽天トラベルにて承っております。<br>ご質問・お問い合わせはお気軽にどうぞ。</p>
+  <div class="cta-buttons">
+    <a href="https://travel.rakuten.co.jp/HOTEL/164464/164464.html" target="_blank" rel="noopener" class="btn-primary">楽天トラベルで予約</a>
+    <a href="#contact" class="btn-secondary">問い合わせ</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="section-head">
+    <p class="section-en">Contact</p>
+    <h2 class="section-jp">お問い合わせ</h2>
+  </div>
+  <div class="form-wrap">
+    <form>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>お名前<span class="req">必須</span></label>
+          <input type="text" placeholder="山田 一郎" required>
+        </div>
+        <div class="form-row">
+          <label>お電話番号<span class="req">必須</span></label>
+          <input type="tel" placeholder="080-1234-5678" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>メールアドレス<span class="req">必須</span></label>
+        <input type="email" placeholder="example@mail.com" required>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>ご希望日</label>
+          <input type="date">
+        </div>
+        <div class="form-row">
+          <label>ご利用人数</label>
+          <select>
+            <option>1〜2名</option>
+            <option>3〜4名</option>
+            <option>5〜6名</option>
+            <option>7〜8名</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>お問い合わせ内容<span class="req">必須</span></label>
+        <textarea placeholder="ご質問やご要望をご記入ください" required></textarea>
+      </div>
+      <button type="submit" class="form-submit">送　信</button>
+    </form>
+  </div>
+</section>
+
+<!-- Owner -->
+<section class="owner">
+  <div class="owner-inner">
+    <p class="owner-en">Message from the Owner</p>
+    <h3>オーナーより</h3>
+    <p>24時間365日、できる限り迅速に対応させていただきます。<br>横浜観光やビジネスの宿泊に、ぜひRay Houseをご利用ください。<br>皆さまが「ただいま」と言いたくなる、そんな滞在をお約束いたします。</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">Ray <span>House</span></div>
+  <p class="footer-tag">横浜・元町中華街 ／ 一日一組限定の一軒家</p>
+  <nav class="footer-nav">
+    <a href="#concept">Concept</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#around">Around</a>
+    <a href="#access">Access</a>
+    <a href="#info">Info</a>
+    <a href="#reserve">Reserve</a>
+  </nav>
+  <p class="copyright">© 2026 Ray House. All Rights Reserved.</p>
+</footer>
+
+<script>
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{
+  header.classList.toggle('scrolled',window.scrollY>60);
+});
+const hamb=document.getElementById('hamb');
+const nav=document.getElementById('nav');
+hamb.addEventListener('click',()=>{
+  hamb.classList.toggle('open');
+  nav.classList.toggle('open');
+});
+document.querySelectorAll('.nav a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    hamb.classList.remove('open');nav.classList.remove('open');
+  });
+});
+document.querySelector('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  alert('お問い合わせありがとうございます。担当者より追ってご連絡いたします。');
+});
+</script>
+</body>
+</html>
