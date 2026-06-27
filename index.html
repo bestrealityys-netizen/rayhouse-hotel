@@ -483,35 +483,20 @@ section{padding:120px 48px;position:relative;}
 
 /* ===== Form ===== */
 .contact{background:var(--paper);}
-.form-wrap{max-width:680px;margin:0 auto;}
-.form-row{margin-bottom:24px;}
-.form-row label{
-  display:block;font-family:var(--serif);
-  font-size:13px;letter-spacing:.18em;
-  margin-bottom:10px;color:var(--text);
+.contact-info{max-width:680px;margin:0 auto;text-align:center;}
+.contact-lead{
+  font-size:15px;line-height:2.2;color:var(--text-muted);
+  letter-spacing:.08em;margin-bottom:36px;
 }
-.form-row label .req{color:var(--vermilion);font-size:10px;margin-left:8px;}
-.form-row input,.form-row textarea,.form-row select{
-  width:100%;padding:14px 18px;
-  background:#fff;border:1px solid var(--line);
-  font-family:var(--sans);font-size:14px;
-  color:var(--text);letter-spacing:.04em;
-  border-radius:0;transition:.3s;
-}
-.form-row input:focus,.form-row textarea:focus,.form-row select:focus{
-  outline:none;border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(201,168,106,.1);
-}
-.form-row textarea{min-height:140px;resize:vertical;}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-.form-submit{
-  display:block;width:100%;
-  background:var(--ink);color:var(--paper);
-  padding:20px;border:none;cursor:pointer;
-  font-family:var(--serif);font-size:14px;letter-spacing:.4em;
+.contact-email{
+  display:inline-block;
+  font-family:var(--latin);
+  font-size:clamp(22px,3vw,32px);
+  letter-spacing:.06em;color:var(--ink);
+  padding:6px 4px;border-bottom:1px solid var(--gold);
   transition:.3s;
 }
-.form-submit:hover{background:var(--vermilion);}
+.contact-email:hover{color:var(--vermilion);border-color:var(--vermilion);}
 
 /* ===== Owner ===== */
 .owner{
@@ -846,43 +831,9 @@ section{padding:120px 48px;position:relative;}
     <p class="section-en">Contact</p>
     <h2 class="section-jp">お問い合わせ</h2>
   </div>
-  <div class="form-wrap">
-    <form>
-      <div class="form-grid">
-        <div class="form-row">
-          <label>お名前<span class="req">必須</span></label>
-          <input type="text" placeholder="山田 一郎" required>
-        </div>
-        <div class="form-row">
-          <label>お電話番号<span class="req">必須</span></label>
-          <input type="tel" placeholder="080-1234-5678" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <label>メールアドレス<span class="req">必須</span></label>
-        <input type="email" placeholder="example@mail.com" required>
-      </div>
-      <div class="form-grid">
-        <div class="form-row">
-          <label>ご希望日</label>
-          <input type="date">
-        </div>
-        <div class="form-row">
-          <label>ご利用人数</label>
-          <select>
-            <option>1〜2名</option>
-            <option>3〜4名</option>
-            <option>5〜6名</option>
-            <option>7〜8名</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <label>お問い合わせ内容<span class="req">必須</span></label>
-        <textarea placeholder="ご質問やご要望をご記入ください" required></textarea>
-      </div>
-      <button type="submit" class="form-submit">送　信</button>
-    </form>
+  <div class="contact-info">
+    <p class="contact-lead">ご予約・ご質問は、下記メールアドレスまで<br>お気軽にお問い合わせください。</p>
+    <a href="mailto:best.reality.ys@gmail.com" class="contact-email">best.reality.ys@gmail.com</a>
   </div>
 </section>
 
